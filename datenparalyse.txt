@@ -1,0 +1,224 @@
+>>>>>>------<<<<<<
+PERPLEXITY Antwort auf datensatzvorschläge:
+
+Gute Wahl: Zenodo bietet mehrere Datensätze, mit denen sich Hypothesentests und SPC in Python praktisch erarbeiten lassen. Hier sind einige empfehlenswerte Zenodo-Quellen mit kurzen Beschreibungen und direkten Links.
+
+Empfehlenswerte Datensätze (Zenodo)
+- Statistical Process Control Benchmark Dataset
+  - Beschreibung: Ein Datensatz zur Benchmark von SPC-Methoden; enthält eine eindimensionale Zeitreihe (x.csv) sowie eine Ziel-/Status-Spalte (y.csv) und begleitende Metadaten. Nützlich, um X̄-, R- und ggf. p-Charts zu testen und SPC-Algorithmen zu validieren. Link: https://zenodo.org/records/8246621
+- An EWMA p Chart Based On Improved Square Root Transformations
+  - Beschreibung: Enthält Daten und Material zur Entwicklung und Visualisierung von EWMA-basierten p-Charts, was gut zu SPC-Analysen passt und die Interpretation von Prozessvariationen unterstützt. Link: https://zenodo.org/records/1093746/files/9998781.pdf (sein begleitendes Paper/Dokument; Originaldatensatz ggf. im selben Eintrag)
+- qicharts2 (R-Python-Bridge für Charting in Quality Control)
+  - Beschreibung: Ein praktischer Datensatz/Projekt, das sich mit Qualitätskontrollcharts befasst; geeignet, um p-, X̄- oder R-Charts in Python zu implementieren bzw. zu vergleichen. Link: https://zenodo.org/records/1309119
+- Weitere SPC-/Statistik-bezogene Inhalte
+  - Beschreibung: Zenodo-Recordings mit SPC- oder Hypothesentest-bezogenen Materialien bzw. Begleitdokumenten, die als Referenz oder ergänzende Datasets genutzt werden können. Link: https://zenodo.org/records/13628911 (COTIDIANA Dataset; primär medizinisch/multimodal, aber interessant für Demonstrationen von SPC-Ansätzen in zeitbasierten Messungen und Anomalieerkennung)
+
+Hinweise zur Nutzung
+- Prüfe jeweils die Begleitdateien (Readme/Codebook/Metadaten), um zu verstehen, welche Variablen vorhanden sind, welche Zeitreihenlängen genutzt wurden und wie der Dataset-Aufbau ist.
+- Für Hypothesentests lassen sich aus diesen Datasets typischerweise Stichproben entnehmen, T-Tests oder ANOVA-Analysen auf Gruppenebene durchführen und SPC-Chart-Ansätze (X̄, R, p-Charts) implementieren; oft sind auch Beispielnotebooks oder Skripte enthalten, die den Workflow step-by-step demonstrieren.
+- Wenn ein Zenodo-Eintrag nur ein PDF oder Begleitdokument enthält, prüfe, ob im zugehörigen Repository oder in verlinkten Dateien der eigentliche Rohdatensatz erreichbar ist.
+
+Zu beachten
+- Die hier aufgeführten Links führen direkt zu den Zenodo-Einträgen bzw. zu den relevanten Materialien. Falls weitere Datasets speziell zu T-Tests, ANOVA oder SPC benötigt werden, kann eine gezielte Suche auf Zenodo nach Begriffen wie “quality control data”, “hypothesis testing dataset” oder “control chart dataset” weitere passende Ergebnisse liefern.
+
+Gib gern bescheid, ob du lieber nur reine Rohdatensätze oder auch fertige Jupyter-Notebook-Beispiele bevorzugst. Dann kann die Auswahl entsprechend eingegrenzt und mit konkreten Import- und Plotting-Schnipseln (Python/Pandas/NumPy/Matplotlib oder seaborn) ergänzt werden.
+
+[1](https://zenodo.org/records/8246621)
+[2](https://www.youtube.com/watch?v=6mw1lvDriIY)
+[3](https://zenodo.org/records/1093746/files/9998781.pdf)
+[4](https://github.com/manfred2020/DA_mit_Python)
+[5](https://zenodo.org/records/1309119)
+[6](http://doe-academy.de/wp-content/uploads/2015/11/Statistische-Prozesskontrolle-SPC.pdf)
+[7](https://zenodo.org/records/13628911)
+[8](https://github.com/cusyio/datenanalyse-in-python/security)
+[9](https://zenodo.org/records/11576345)
+[10](https://github.com/sdsc-bw/Datenanalyse-Demo/actions)
+
+
+
+>>>>>>------<<<<<<
+PERPLEXITY Antwort auf vorgehensweise:
+
+Für dein Thema eignen sich am besten reale Produktions‑ oder Qualitätsdaten, bei denen du Zeitreihen, Stichproben und mehrere Gruppen hast, damit du sowohl T‑Tests/ANOVA als auch Control Charts üben kannst. Typische Beispiele sind Fertigungsmaße (Längen, Durchmesser), Ausschussquoten, Prozesszeiten oder A/B‑Experimente in Online‑Systemen.  
+
+## 1. Geeignete Open‑Data‑Datensätze (Ideen)
+
+Du kannst auf Zenodo, Kaggle, UCI Machine Learning Repository oder Uni‑Lehrseiten gezielt nach Datensätzen für Hypothesentests und Qualitätskontrolle suchen. Viele Statistik‑Lehrstühle stellen kleine, „saubere“ CSV‑Datensätze mit Prozess‑ oder Experimentdaten zur Verfügung, die explizit für T‑Tests und ANOVA gedacht sind.[5][7]
+
+Konkret gut geeignet sind zum Beispiel:  
+- Datensätze mit mehreren Behandlungsgruppen (z.B. unterschiedliche Maschinen, Schichten, Einstellungen) für **ANOVA**; Stichwortsuche: „manufacturing quality dataset“, „production line measurements“, „process improvement experiment“.[5]
+- Datensätze mit **Vorher‑/Nachher‑Messungen** oder A/B‑Vergleichen für **T‑Tests** (z.B. Online‑Experimente, Werbekampagnen, Prozessoptimierungen).[1][3]
+- Qualitätskontrolldaten mit fortlaufenden Stichproben (z.B. Durchmesser, Gewicht, Fehlerquoten pro Charge/Tag) für **X̄‑, R‑ und p‑Charts**; Stichwort: „statistical process control dataset“, „control chart example data“.[5]
+
+Kriterien, auf die du achten solltest:  
+- Zeit- oder Chargen‑Spalte, damit du Reihenfolge für Control Charts hast.  
+- Messwerte einer kontinuierlichen Größe (für X̄/R‑Charts) und/oder Anzahl Fehler/Anzahl geprüft (für p‑Charts).  
+- Zusatzspalten wie „Gruppe“, „Maschine“, „Periode_vor_nach“ für T‑Test/ANOVA.  
+
+## 2. Typischer Python‑Workflow auf solchen Daten
+
+Im Kern brauchst du: Daten einlesen, aufbereiten, dann mit `scipy.stats` Tests rechnen und z.B. mit `matplotlib` Control Charts zeichnen.[4][10]
+
+### 2.1 Grundstruktur: Einlesen und Überblick
+
+```python
+import pandas as pd
+
+df = pd.read_csv("daten.csv")   # Pfad zum heruntergeladenen Datensatz
+print(df.head())
+print(df.describe())
+print(df.dtypes)
+```
+
+Wichtige Schritte:  
+- Prüfen, welche Spalten Messwerte, welche Gruppen (z.B. „Gruppe“, „Maschine“) und welche Zeit/Charge sind.  
+- Fehlende Werte behandeln (`df.dropna()` oder sinnvoll imputieren).  
+
+### 2.2 T‑Tests in Python
+
+**a) Einstichproben‑T‑Test**: Mittelwert vs. Sollwert (z.B. Länge soll 10.0 sein).  
+
+```python
+from scipy import stats
+
+x = df["messwert"]
+t_stat, p_val = stats.ttest_1samp(x, popmean=10.0)
+print(t_stat, p_val)
+```
+
+Interpretation (für Bericht):  
+- Nullhypothese: Mittelwert = 10.  
+- Bei kleinem p‑Wert (z.B. < 0.05) ablehnen → Prozessmittelwert hat sich signifikant verändert.[4]
+
+**b) Zwei‑Stichproben‑T‑Test**: z.B. Maschine A vs. Maschine B.  
+
+```python
+gruppe_A = df.loc[df["maschine"] == "A", "messwert"]
+gruppe_B = df.loc[df["maschine"] == "B", "messwert"]
+
+t_stat, p_val = stats.ttest_ind(gruppe_A, gruppe_B, equal_var=False)  # Welch-T-Test
+print(t_stat, p_val)
+```
+
+- Nullhypothese: Mittelwerte A und B sind gleich.  
+- Geeignet, um eine Prozessänderung (vorher/nachher oder alt/neu) zu testen.[4]
+
+### 2.3 ANOVA in Python
+
+Wenn du mehr als zwei Gruppen hast (z.B. drei verschiedene Prozess‑Einstellungen oder Schichten):  
+
+```python
+from scipy import stats
+
+g1 = df.loc[df["gruppe"] == "Einstellung1", "messwert"]
+g2 = df.loc[df["gruppe"] == "Einstellung2", "messwert"]
+g3 = df.loc[df["gruppe"] == "Einstellung3", "messwert"]
+
+F_stat, p_val = stats.f_oneway(g1, g2, g3)
+print(F_stat, p_val)
+```
+
+- Nullhypothese: Alle Gruppen haben denselben Mittelwert.  
+- Bei signifikantem Ergebnis ggf. Post‑hoc‑Vergleiche (z.B. Tukey) mit `statsmodels`.[4]
+
+### 2.4 Control Charts (X̄‑ und R‑Chart)
+
+Für Control Charts brauchst du Stichproben (Subgroups), z.B. jeweils 5 Teile pro Zeitpunkt/Charge. Angenommen, du hast eine Spalte `charge` als Stichprobennummer und eine Spalte `messwert`:  
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Stichprobenkennwerte berechnen
+gruppen = df.groupby("charge")["messwert"]
+xbar = gruppen.mean()
+R = gruppen.max() - gruppen.min()
+
+# Gesamtdurchschnitt und Durchschnitt der Spannweiten
+X_double_bar = xbar.mean()
+R_bar = R.mean()
+
+n = gruppen.size().iloc[0]  # Stichprobengröße (z.B. 5)
+
+# SPC-Konstanten für X̄- und R-Chart (für gegebene n, z.B. n=5: A2=0.577, D3=0, D4=2.115)
+A2 = 0.577
+D3 = 0.0
+D4 = 2.115
+
+UCL_x = X_double_bar + A2 * R_bar
+LCL_x = X_double_bar - A2 * R_bar
+
+UCL_R = D4 * R_bar
+LCL_R = D3 * R_bar
+```
+
+Plot des X̄‑Charts:  
+
+```python
+plt.figure(figsize=(8,4))
+plt.plot(xbar.index, xbar.values, marker="o")
+plt.axhline(X_double_bar, color="green", linestyle="--", label="CL")
+plt.axhline(UCL_x, color="red", linestyle="--", label="UCL")
+plt.axhline(LCL_x, color="red", linestyle="--", label="LCL")
+plt.xlabel("Charge")
+plt.ylabel("Stichprobenmittelwert")
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+Analog für das R‑Chart mit den Spannweiten `R` und Grenzen `UCL_R`, `LCL_R`. Die Konstanten A2, D3, D4 findest du in SPC‑Tabellen (Lehrbücher/Online‑Ressourcen zu Control Charts).[5]
+
+### 2.5 p‑Chart (Anteil fehlerhafter Teile)
+
+Wenn dein Datensatz pro Charge die Spalten `defects` (Anzahl fehlerhaft) und `n` (Anzahl geprüft) hat:  
+
+```python
+# Anteil Fehler pro Stichprobe
+df["p"] = df["defects"] / df["n"]
+p_bar = df["p"].mean()
+
+# Kontrollgrenzen (vereinfachte Form, variable n)
+import numpy as np
+
+df["sigma_p"] = np.sqrt(p_bar * (1 - p_bar) / df["n"])
+df["UCL_p"] = p_bar + 3 * df["sigma_p"]
+df["LCL_p"] = p_bar - 3 * df["sigma_p"]
+df["LCL_p"] = df["LCL_p"].clip(lower=0)  # negative Grenzen auf 0 setzen
+```
+
+Plot:  
+
+```python
+plt.figure(figsize=(8,4))
+plt.plot(df["stichprobe"], df["p"], marker="o")
+plt.axhline(p_bar, color="green", linestyle="--", label="CL")
+plt.plot(df["stichprobe"], df["UCL_p"], "r--", label="UCL")
+plt.plot(df["stichprobe"], df["LCL_p"], "r--", label="LCL")
+plt.xlabel("Stichprobe")
+plt.ylabel("Anteil fehlerhaft")
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+### 2.6 Dokumentation für deinen Praxis‑Teil
+
+Für deinen Bericht bzw. deine Präsentation kannst du strukturiert vorgehen:  
+- Datenquelle kurz beschreiben (Plattform, Thema, Variablen).  
+- Fragestellungen formulieren (z.B. „Hat sich der Mittelwert nach Prozessänderung verändert?“).  
+- Gewählten Test begründen (T‑Test, ANOVA) und Ergebnis mit p‑Wert interpretieren.[4]
+- Control Charts erstellen, Sonderlagen (Punkte außerhalb der Grenzen, Trends) beschreiben und auf Prozessstabilität eingehen.[5]
+
+Wenn du magst, kann der nächste Schritt sein: du schickst den Link zu einem konkreten Datensatz (z.B. von Zenodo/Kaggle), und es kann ein kompletter, kommentierter Python‑Code für genau dieses Beispiel skizziert werden.
+
+[1](https://arxiv.org/pdf/2111.10198.pdf)
+[2](https://www.youtube.com/watch?v=6mw1lvDriIY)
+[3](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/file/274ad4786c3abca69fa097b85867d9a4-Paper-round2.pdf)
+[4](https://towardsdatascience.com/anova-t-test-and-other-statistical-tests-with-python-e7a36a2fdc0c/)
+[5](https://online.stat.psu.edu/stat200/datasets)
+[6](https://www.youtube.com/watch?v=nvrpy9-po0k)
+[7](https://statisticsbyjim.com/hypothesistesting/)
+[8](https://de.scribd.com/document/844031548/67-2-1)
+[9](https://www.tableau.com/learn/articles/free-public-data-sets)
+[10](https://blog.stackademic.com/how-to-perform-statistical-analysis-using-python-de49a894506b)
